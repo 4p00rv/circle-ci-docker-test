@@ -1,0 +1,6 @@
+version: '3.7'
+services:
+  web:
+    image: 4p00rv/py_server:latest
+    ports:
+      - '8080:8080'
