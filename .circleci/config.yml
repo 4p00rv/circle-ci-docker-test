@@ -6,7 +6,15 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run: docker build -t 4p00rv/py_server .
+      - run: docker build -t 4p00rv/py_server:${CIRCLE_TAG:-latest} .
+
+  deploy:
+    docker:
+      - image: docker:17.05.0-ce-git
+        username: 4p00rv
+        password: $DOCKERHUB_PASSWORD
+    steps:
+      - run: docker push 4p00rv/py_server:${CIRCLE_TAG}
 
 workflow:
   version: 2
@@ -16,3 +24,11 @@ workflow:
           filters:
             branches:
               only: master
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^V\d+_.*/
+            branches:
+              ignore: /.*/
