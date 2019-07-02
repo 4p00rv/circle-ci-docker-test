@@ -13,8 +13,8 @@ jobs:
       - image: docker:17.05.0-ce-git
     steps:
       - run: | 
-        docker login -u 4p00rv -p $DOCKERHUB_PASSWORD
-        docker push 4p00rv/py_server:${CIRCLE_TAG}
+          docker login -u 4p00rv -p $DOCKERHUB_PASSWORD
+          docker push 4p00rv/py_server:${CIRCLE_TAG}
 
 workflows:
   version: 2
