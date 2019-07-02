@@ -23,9 +23,5 @@ workflow:
       - build
   tagged:
     jobs:
-      - build:
-          filters:
-            tags:
-              only: /.*/
-            branches:
-              ignore: /.*/
+      - build
+
