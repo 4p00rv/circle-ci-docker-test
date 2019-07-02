@@ -1,10 +1,11 @@
 version: 2
 jobs:
-  docker:
-    - image: ubuntu
   build:
+    docker:
+      - image: docker:17.05.0-ce-git
     steps:
       - checkout
+      - setup_remote_docker
       - run: docker build -t 4p00rv/py_server .
 
 workflow:
