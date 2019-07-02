@@ -23,6 +23,7 @@ workflow:
       - build
   tagged:
     jobs:
+      - build
       - deploy:
           requires:
             - build
