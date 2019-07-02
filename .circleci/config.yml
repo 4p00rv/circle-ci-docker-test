@@ -24,4 +24,5 @@ workflow:
   tagged:
     jobs:
       - build
+      - deploy
 
