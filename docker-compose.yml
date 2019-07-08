@@ -3,4 +3,4 @@ services:
   web:
     image: 4p00rv/py_server:latest
     ports:
-      - '8080:8080'
+      - '8000:8000'
